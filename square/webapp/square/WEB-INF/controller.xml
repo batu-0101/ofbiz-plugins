@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ofbiz.apache.org/Site-Conf"
+        xsi:schemaLocation="http://ofbiz.apache.org/Site-Conf http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <include location="component://commonext/webapp/WEB-INF/controller.xml"/>
+    <description>Square account connection</description>
+    <request-map uri="main">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.apache.ofbiz.square.SquareConnectionEvents" invoke="load"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    <request-map uri="books"><security https="true" auth="true"/><event type="java" path="org.apache.ofbiz.square.BooksEvents" invoke="list"/><response name="success" type="view" value="books"/><response name="error" type="view" value="books"/></request-map>
+    <request-map uri="document"><security https="true" auth="true"/><event type="java" path="org.apache.ofbiz.square.BooksEvents" invoke="document"/><response name="success" type="view" value="document"/><response name="error" type="view" value="document"/></request-map>
+    <request-map uri="approveEstimate"><security https="true" auth="true"/><event type="java" path="org.apache.ofbiz.square.BooksEvents" invoke="approve"/><response name="success" type="view" value="document"/><response name="error" type="view" value="document"/></request-map>
+    <request-map uri="acceptCardFee"><security https="true" auth="true"/><event type="java" path="org.apache.ofbiz.square.BooksEvents" invoke="accept"/><response name="success" type="view" value="document"/><response name="error" type="view" value="document"/></request-map>
+    <request-map uri="refreshPayment"><security https="true" auth="true"/><event type="java" path="org.apache.ofbiz.square.BooksEvents" invoke="refreshPayment"/><response name="success" type="view" value="document"/><response name="error" type="view" value="document"/></request-map>
+    <request-map uri="booksSettings"><security https="true" auth="true"/><event type="java" path="org.apache.ofbiz.square.BooksSettings" invoke="page"/><response name="success" type="view" value="booksSettings"/><response name="error" type="view" value="booksSettings"/></request-map>
+    <view-map name="booksSettings" type="screen" page="component://square/widget/SquareScreens.xml#booksSettings" no-cache="true"/>
+    <view-map name="books" type="screen" page="component://square/widget/SquareScreens.xml#books" no-cache="true"/>
+    <view-map name="document" type="screen" page="component://square/widget/SquareScreens.xml#document" no-cache="true"/>
+    <view-map name="main" type="screen" page="component://square/widget/SquareScreens.xml#main" no-cache="true"/>
+</site-conf>

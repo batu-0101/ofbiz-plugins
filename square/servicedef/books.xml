@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/services.xsd">
+  <description>Beyond Books native OFBiz document workflow</description><vendor>Local</vendor><version>1.0</version>
+  <service name="bbGuardQuoteMutation" engine="java" location="org.apache.ofbiz.square.BooksServices" invoke="guardQuote" auth="true">
+    <attribute name="quoteId" type="String" mode="IN" optional="true"/>
+    <attribute name="quoteAdjustmentId" type="String" mode="IN" optional="true"/>
+  </service>
+  <service name="bbApproveEstimate" engine="java" location="org.apache.ofbiz.square.BooksServices" invoke="approve" auth="true" use-transaction="true">
+    <attribute name="quoteId" type="String" mode="IN"/><attribute name="snapshotDigest" type="String" mode="IN"/>
+    <attribute name="invoiceId" type="String" mode="OUT" optional="true"/>
+  </service>
+  <service name="bbAcceptCardFee" engine="java" location="org.apache.ofbiz.square.BooksServices" invoke="acceptFee" auth="true" use-transaction="true">
+    <attribute name="invoiceId" type="String" mode="IN"/><attribute name="principalCents" type="Long" mode="IN"/>
+    <attribute name="feeCents" type="Long" mode="IN"/><attribute name="totalCents" type="Long" mode="IN"/>
+    <attribute name="acknowledged" type="Boolean" mode="IN"/>
+    <attribute name="checkoutId" type="String" mode="OUT" optional="true"/>
+  </service>
+  <service name="bbStartSquareCheckout" engine="java" location="org.apache.ofbiz.square.BooksPaymentServices" invoke="start" auth="true" transaction-timeout="90">
+    <attribute name="checkoutId" type="String" mode="IN"/><attribute name="paymentUrl" type="String" mode="OUT" optional="true"/>
+  </service>
+  <service name="bbRefreshSquarePayment" engine="java" location="org.apache.ofbiz.square.BooksPaymentServices" invoke="refresh" auth="true" transaction-timeout="90">
+    <attribute name="checkoutId" type="String" mode="IN"/><attribute name="paymentState" type="String" mode="OUT" optional="true"/>
+  </service>
+  <service name="bbSavePaymentSettings" engine="java" location="org.apache.ofbiz.square.BooksSettings" invoke="save" auth="true">
+    <attribute name="partyId" type="String" mode="IN"/><attribute name="feeEnabled" type="Boolean" mode="IN"/>
+    <attribute name="feeBps" type="Long" mode="IN"/><attribute name="feeFixedCents" type="Long" mode="IN"/>
+  </service>
+</services>

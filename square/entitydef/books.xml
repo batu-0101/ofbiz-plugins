@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/entitymodel.xsd">
+  <title>Beyond Books approval and checkout evidence</title><description>Native quotes, invoices and payments remain the accounting records.</description><version>1.0</version>
+  <entity entity-name="BbQuoteConversion" package-name="org.apache.ofbiz.square" never-cache="true">
+    <field name="quoteId" type="id"/><field name="invoiceId" type="id"/>
+    <field name="approvedAt" type="date-time"/><field name="approvedBy" type="id-vlong"/>
+    <field name="snapshotDigest" type="value"/>
+    <prim-key field="quoteId"/>
+    <relation type="one" rel-entity-name="Quote" fk-name="BB_CONV_QUOTE"><key-map field-name="quoteId"/></relation>
+    <relation type="one" rel-entity-name="Invoice" fk-name="BB_CONV_INV"><key-map field-name="invoiceId"/></relation>
+    <index name="BB_CONV_INV_UQ" unique="true"><index-field name="invoiceId"/></index>
+  </entity>
+  <entity entity-name="BbCheckout" package-name="org.apache.ofbiz.square" never-cache="true">
+    <field name="checkoutId" type="id"/><field name="invoiceId" type="id"/>
+    <field name="requestKey" type="value"/><field name="principalCents" type="numeric"/>
+    <field name="feeCents" type="numeric"/><field name="totalCents" type="numeric"/>
+    <field name="currencyUomId" type="id"/><field name="status" type="id"/>
+    <field name="locationId" type="id-long"/><field name="providerLinkId" type="id-long"/>
+    <field name="providerOrderId" type="id-long"/><field name="providerPaymentId" type="id-long"/>
+    <field name="paymentUrl" type="long-varchar"/><field name="paymentId" type="id"/>
+    <field name="feeInvoiceId" type="id"/><field name="reviewReason" type="description"/>
+    <field name="processingFeeCents" type="numeric"/>
+    <field name="providerRequestId" type="id-long"/>
+    <prim-key field="checkoutId"/>
+    <relation type="one" rel-entity-name="Invoice" fk-name="BB_CO_INV"><key-map field-name="invoiceId"/></relation>
+    <index name="BB_CO_KEY_UQ" unique="true"><index-field name="requestKey"/></index>
+    <index name="BB_CO_PAY_UQ" unique="true"><index-field name="providerPaymentId"/></index>
+  </entity>
+  <entity entity-name="BbFeeConsent" package-name="org.apache.ofbiz.square" never-cache="true">
+    <field name="checkoutId" type="id"/><field name="acceptedAt" type="date-time"/>
+    <field name="acceptedBy" type="id-vlong"/><field name="principalCents" type="numeric"/>
+    <field name="feeCents" type="numeric"/><field name="totalCents" type="numeric"/>
+    <field name="currencyUomId" type="id"/><field name="noticeVersion" type="id"/>
+    <prim-key field="checkoutId"/>
+    <relation type="one" rel-entity-name="BbCheckout" fk-name="BB_ACK_CO"><key-map field-name="checkoutId"/></relation>
+  </entity>
+</entitymodel>

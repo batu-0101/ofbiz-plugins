@@ -1152,21 +1152,21 @@ under the License.
         <row-actions>
             <set field="isCurrentProject" value="${groovy: 
                 if (request.getAttribute('currentProject') != context.projectId)
-                    request.setAttribute('isCurrentProject', false)
+                    request.setAttribute('isCurrentProject', false);
                 else
-                    request.setAttribute('isCurrentProject', true)
+                    request.setAttribute('isCurrentProject', true);
                 if (request.getAttribute('currentProject') != context.projectId)
-                    request.setAttribute('currentProject', context.projectId)
+                    request.setAttribute('currentProject', context.projectId);
                 return (boolean)request.getAttribute('isCurrentProject')
                 }"
                 type="Boolean"/>
             <set field="isCurrentCompany" value="${groovy: 
                 if (request.getAttribute('currentCompany') != context.companyId)
-                    request.setAttribute('isCurrentCompany', false)
+                    request.setAttribute('isCurrentCompany', false);
                 else
-                    request.setAttribute('isCurrentCompany', true)
+                    request.setAttribute('isCurrentCompany', true);
                 if (request.getAttribute('currentCompany') != context.companyId)
-                    request.setAttribute('currentCompany', context.companyId)
+                    request.setAttribute('currentCompany', context.companyId);
                 return (boolean)request.getAttribute('isCurrentCompany')
                 }"
                 type="Boolean"/>
@@ -1253,11 +1253,11 @@ under the License.
         <row-actions>
             <set field="isCurrentProject" value="${groovy: 
                 if (request.getAttribute('currentProject') != context.projectId)
-                    request.setAttribute('isCurrentProject', false)
+                    request.setAttribute('isCurrentProject', false);
                 else
-                    request.setAttribute('isCurrentProject', true)
+                    request.setAttribute('isCurrentProject', true);
                 if (request.getAttribute('currentProject') != context.projectId)
-                    request.setAttribute('currentProject', context.projectId)
+                    request.setAttribute('currentProject', context.projectId);
                 return (boolean)request.getAttribute('isCurrentProject')
                 }"
                 type="Boolean"/>
@@ -2387,11 +2387,11 @@ under the License.
             </entity-one>
             <set field="isCurrentCompany" value="${groovy: 
                 if (request.getAttribute('currentCompany') != context.groupName)
-                    request.setAttribute('isCurrentCompany', false)
+                    request.setAttribute('isCurrentCompany', false);
                 else
-                    request.setAttribute('isCurrentCompany', true)
+                    request.setAttribute('isCurrentCompany', true);
                 if (request.getAttribute('currentCompany') != context.groupName)
-                    request.setAttribute('currentCompany', context.groupName)
+                    request.setAttribute('currentCompany', context.groupName);
                 return (boolean)request.getAttribute('isCurrentCompany');
                 }"
                 type="Boolean"/>

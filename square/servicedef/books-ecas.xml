@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service-eca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/service-eca.xsd">
+  <eca service="updateQuote" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="removeQuote" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="createQuoteItem" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="updateQuoteItem" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="removeQuoteItem" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="createQuoteAdjustment" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="updateQuoteAdjustment" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="removeQuoteAdjustment" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="createQuoteTerm" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="updateQuoteTerm" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="removeQuoteTerm" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+  <eca service="loadCartFromQuote" event="invoke"><action service="bbGuardQuoteMutation" mode="sync"/></eca>
+</service-eca>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Explicit, create-only local setup. Not an automatic seed and contains no credentials or balances. -->
+<entity-engine-xml>
+  <create>
+    <Party partyId="HBS_SQUARE" partyTypeId="PARTY_GROUP" statusId="PARTY_ENABLED" preferredCurrencyUomId="USD"/>
+    <PartyGroup partyId="HBS_SQUARE" groupName="Home &amp; Beyond Services"/>
+    <PartyRole partyId="HBS_SQUARE" roleTypeId="INTERNAL_ORGANIZATIO"/>
+    <PartyRole partyId="HBS_SQUARE" roleTypeId="BILL_FROM_VENDOR"/>
+    <PartyAcctgPreference partyId="HBS_SQUARE" baseCurrencyUomId="USD" enableAccounting="Y"
+        invoiceSeqCustMethId="INV_HOOK_ENF_SEQ" invoiceIdPrefix="HBSI" quoteIdPrefix="HBSQ" orderIdPrefix="HBSO"/>
+    <ProductStore productStoreId="HBS_SQUARE" storeName="Home &amp; Beyond Services" companyName="Home &amp; Beyond Services"
+        title="Home &amp; Beyond Services" payToPartyId="HBS_SQUARE" defaultCurrencyUomId="USD" defaultLocaleString="en_US"
+        requireInventory="N" checkInventory="N" reserveInventory="N"/>
+    <GlAccount glAccountId="HBS_SQUARE_CLEAR" glAccountTypeId="MRCH_STLMNT_ACCOUNT" glAccountClassId="CURRENT_ASSET"
+        glResourceTypeId="MONEY" accountCode="HBS-SQUARE" accountName="HBS Square clearing"
+        description="Gross Square receipts awaiting fee and bank-payout reconciliation"/>
+    <GlAccountOrganization organizationPartyId="HBS_SQUARE" glAccountId="HBS_SQUARE_CLEAR" fromDate="2026-09-17 00:00:00.000"/>
+    <GlAccountOrganization organizationPartyId="HBS_SQUARE" glAccountId="120000" fromDate="2026-09-17 00:00:00.000"/>
+    <GlAccountOrganization organizationPartyId="HBS_SQUARE" glAccountId="126000" fromDate="2026-09-17 00:00:00.000"/>
+    <GlAccountOrganization organizationPartyId="HBS_SQUARE" glAccountId="401000" fromDate="2026-09-17 00:00:00.000"/>
+    <GlAccountOrganization organizationPartyId="HBS_SQUARE" glAccountId="409000" fromDate="2026-09-17 00:00:00.000"/>
+    <GlAccountTypeDefault organizationPartyId="HBS_SQUARE" glAccountTypeId="ACCOUNTS_RECEIVABLE" glAccountId="120000"/>
+    <GlAccountTypeDefault organizationPartyId="HBS_SQUARE" glAccountTypeId="ACCREC_UNAPPLIED" glAccountId="126000"/>
+    <GlAccountTypeDefault organizationPartyId="HBS_SQUARE" glAccountTypeId="SALES_ACCOUNT" glAccountId="401000"/>
+    <GlAccountTypeDefault organizationPartyId="HBS_SQUARE" glAccountTypeId="MRCH_STLMNT_ACCOUNT" glAccountId="HBS_SQUARE_CLEAR"/>
+    <PaymentGlAccountTypeMap organizationPartyId="HBS_SQUARE" paymentTypeId="CUSTOMER_PAYMENT" glAccountTypeId="ACCREC_UNAPPLIED"/>
+    <PaymentMethodTypeGlAccount organizationPartyId="HBS_SQUARE" paymentMethodTypeId="CREDIT_CARD" glAccountId="HBS_SQUARE_CLEAR"/>
+    <InvoiceItemTypeGlAccount organizationPartyId="HBS_SQUARE" invoiceItemTypeId="FEE" glAccountId="409000"/>
+    <CustomTimePeriod organizationPartyId="HBS_SQUARE" customTimePeriodId="HBS_OPEN_2026" periodTypeId="FISCAL_YEAR"
+        fromDate="2026-01-01" thruDate="2027-01-01" isClosed="N" periodNum="2026" periodName="2026"/>
+  </create>
+</entity-engine-xml>

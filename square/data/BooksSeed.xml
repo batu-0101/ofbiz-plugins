@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+  <StatusItem statusId="QUO_BB_CONVERTED" statusTypeId="QUOTE_STATUS" statusCode="CONVERTED" description="Approved and converted to invoice" sequenceId="04"/>
+  <StatusValidChange statusId="QUO_APPROVED" statusIdTo="QUO_BB_CONVERTED" transitionName="Approve estimate and create invoice"/>
+</entity-engine-xml>

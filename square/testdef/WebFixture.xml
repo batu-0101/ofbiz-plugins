@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Explicitly synthetic local HTTP verification records. Never linked to a live Square issuer. -->
+<entity-engine-xml>
+  <Quote quoteId="BB_WEB_EST2" quoteTypeId="PRODUCT_QUOTE" partyId="DemoCustomer" productStoreId="9000" currencyUomId="USD" statusId="QUO_APPROVED" issueDate="2026-09-17 12:00:00.000" quoteName="VERIFICATION ONLY" description="Synthetic local workflow verification - no customer charge"/>
+  <QuoteItem quoteId="BB_WEB_EST2" quoteItemSeqId="00001" quantity="2.5" quoteUnitPrice="40.00" comments="Verification line - no customer charge"/>
+  <QuoteTerm quoteId="BB_WEB_EST2" quoteItemSeqId="_NA_" termTypeId="FIN_PAYMENT_TERM" termDays="30" description="Net 30 verification"/>
+  <Party partyId="BB_VERIFY" partyTypeId="PARTY_GROUP" preferredCurrencyUomId="USD"/>
+  <PartyGroup partyId="BB_VERIFY" groupName="Local verification only - no real merchant"/>
+  <PartyAttribute partyId="BB_VERIFY" attrName="BB_CARD_FEE_ENABLED" attrValue="true"/>
+  <PartyAttribute partyId="BB_VERIFY" attrName="BB_CARD_FEE_BPS" attrValue="300"/>
+  <PartyAttribute partyId="BB_VERIFY" attrName="BB_CARD_FEE_FIXED" attrValue="30"/>
+  <Invoice invoiceId="BB_WEB_FEE" invoiceTypeId="SALES_INVOICE" partyIdFrom="BB_VERIFY" partyId="DemoCustomer" currencyUomId="USD" statusId="INVOICE_READY" invoiceDate="2026-09-17 12:00:00.000" description="Synthetic fee-notice verification - no customer charge"/>
+  <InvoiceItem invoiceId="BB_WEB_FEE" invoiceItemSeqId="00001" invoiceItemTypeId="INV_FPROD_ITEM" quantity="1" amount="100.00" description="Verification only - not a real invoice"/>
+</entity-engine-xml>

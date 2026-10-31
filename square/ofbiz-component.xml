@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ofbiz-component name="square" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+    <resource-loader name="main" type="component"/>
+    <classpath type="dir" location="config"/>
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/books.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/BooksSeed.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/books.xml"/>
+    <service-resource type="eca" loader="main" location="servicedef/books-ecas.xml"/>
+    <test-suite loader="main" location="testdef/books.xml"/>
+    <webapp name="square" title="Square" position="11" menu-name="main"
+        server="default-server" location="webapp/square" base-permission="ACCOUNTING" mount-point="/square"/>
+</ofbiz-component>

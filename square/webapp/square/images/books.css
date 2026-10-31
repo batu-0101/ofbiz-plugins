@@ -1,0 +1,11 @@
+.books-document{max-width:960px;margin:20px auto;padding:32px;background:var(--surface,#fffdf8);border:1px solid #ded8cd;border-radius:20px}
+.books-document header{margin:30px 0}.books-document h1,.books-document h2{font-family:Fraunces,Georgia,serif}.books-document h1{font-size:36px}
+.books-eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.17em;color:#726448}.books-approved,.books-success{color:#315e45}
+.books-document button{border-radius:999px;padding:11px 22px;box-shadow:0 3px 10px #15151818;cursor:pointer;border:1px solid #d9d1c4;background:#fffdf8}
+.books-document button.books-primary{background:#151518;color:#fffdf8;border-color:#151518}.books-document button:disabled{opacity:.55;cursor:wait}
+.books-document button:focus-visible,.books-document a:focus-visible{outline:3px solid #a98e5d;outline-offset:3px}
+.books-totals{margin:24px 0;text-align:right}.books-totals strong{display:inline-block;min-width:160px;font-size:20px}
+.books-document dialog{color:#151518;background:#fffdf8;border:1px solid #d9d1c4;border-radius:24px;max-width:min(520px,90vw);padding:30px;box-shadow:0 20px 80px #15151840}
+.books-document dialog::backdrop{background:#15151888}.books-document dialog p{line-height:1.6}.books-fee-breakdown{display:grid;grid-template-columns:1fr auto;gap:12px;margin:24px 0}.books-fee-breakdown dd{margin:0;text-align:right}
+.books-document.is-transforming{animation:books-arrive .4s ease}@keyframes books-arrive{from{opacity:.25;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.books-document.is-transforming{animation:none}}@media(max-width:600px){.books-document{padding:18px}.books-document table{font-size:12px}.books-document dialog{padding:20px}}
